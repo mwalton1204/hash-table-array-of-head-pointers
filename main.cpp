@@ -27,6 +27,18 @@ int main() {
     table.addEntry(tmpId, &tmpString);
     cout << "COUNT: " << table.getCount() << "\n\n";
 
+    tmpId = 35;
+    tmpString = "Five";
+    table.addEntry(tmpId, &tmpString);
+    cout << "COUNT: " << table.getCount() << "\n\n";
+
+tmpId = 95;
+    tmpString = "Five";
+    table.addEntry(tmpId, &tmpString);
+    cout << "COUNT: " << table.getCount() << "\n\n";
+
+    table.displayTable();
+
     cout << table.getEntry(1) << "\n\n";
     cout << table.getEntry(3) << "\n\n";
     cout << table.getEntry(5) << "\n\n";

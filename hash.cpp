@@ -14,7 +14,17 @@ HashTable::HashTable() {
     count = 0;
 }
 
-HashTable::~HashTable() {}
+HashTable::~HashTable() {
+    for (int i = 0; i < HASHTABLESIZE; i++) {
+        Node *current = hashTable[i];
+        while(current) {
+            Node *tmpNode = current;
+            current = current->next;
+            delete tmpNode;
+        }
+        hashTable[i] = NULL;
+    }
+}
 
 bool HashTable::addEntry(int id, string* data) {
     bool added = false;
@@ -93,7 +103,20 @@ int HashTable::getCount() {
     return count;
 }
 
-void HashTable::displayTable() {}
+void HashTable::displayTable() {
+    for(int i = 0; i < HASHTABLESIZE; i++) {
+        Node *current = hashTable[i];
+        cout << "Entry " << i + 1 << ": ";
+        while(current) {
+            cout << current->data.id;
+            if (current->next) {
+                cout << " -> ";
+            }
+            current = current ->next;
+        }
+        cout << "\n";
+    }
+}
 
 int HashTable::hash(int id) {
     return id % HASHTABLESIZE;

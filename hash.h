@@ -11,8 +11,10 @@ Purpose:
 #define HASHTABLESIZE 15
 
 #include <string>
+#include <iostream>
 
 using std::string;
+using std::cout;
 
 //Standard Data Struct
 struct Data {
