@@ -13,23 +13,30 @@ int main() {
     cout << "COUNT: " << table.getCount() << "\n\n";
 
     int tmpId = 1;
-    string tmpString = "Hello";
+    string tmpString = "One";
     table.addEntry(tmpId, &tmpString);
     cout << "COUNT: " << table.getCount() << "\n\n";
 
     tmpId = 3;
-    tmpString = "Hello";
+    tmpString = "Three";
     table.addEntry(tmpId, &tmpString);
     cout << "COUNT: " << table.getCount() << "\n\n";
 
     tmpId = 5;
-    tmpString = "Hello";
+    tmpString = "Five";
     table.addEntry(tmpId, &tmpString);
     cout << "COUNT: " << table.getCount() << "\n\n";
+
+    cout << table.getEntry(1) << "\n\n";
+    cout << table.getEntry(3) << "\n\n";
+    cout << table.getEntry(5) << "\n\n";
+    cout << table.getEntry(7) << "\n\n";
 
     table.removeEntry(1);
 
     cout << "COUNT: " << table.getCount() << "\n\n";
+
+    cout << table.getEntry(1) << "\n\n";
 
     table.removeEntry(5);
 

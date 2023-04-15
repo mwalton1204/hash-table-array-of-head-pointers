@@ -68,8 +68,25 @@ bool HashTable::removeEntry(int id) {
     return removed;
 }
 
-string HashTable::getEntry(int) {
-    return 0;
+string HashTable::getEntry(int id) {
+    int position = hash(id);
+    Data tmpData{id, "ERROR: ID NOT FOUND"};
+
+    if(hashTable[position]) {
+        if(hashTable[position]->data.id == id) {
+            tmpData.data = hashTable[position]->data.data;
+        } else {
+            Node *current = hashTable[position];
+            while(current->next && current->next->data.id != id) {
+                current = current->next;
+            }
+            if(current->next && current->next->data.id == id) {
+                tmpData.data = current->data.data;
+            }
+        }
+    }
+
+    return tmpData.data;
 }
 
 int HashTable::getCount() {
