@@ -26,7 +26,7 @@ bool HashTable::addEntry(int id, string* data) {
         hashTable[position] = newNode;
         count++;
         added = true;
-    } else{
+    } else if (hashTable[position]) {
         Node *current = hashTable[position];
         while(current->next) {
             current = current->next;
