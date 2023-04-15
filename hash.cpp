@@ -31,6 +31,6 @@ int HashTable::getCount() {
 
 void HashTable::displayTable() {}
 
-int HashTable::hash(int) {
-    return 0;
+int HashTable::hash(int id) {
+    return id % HASHTABLESIZE;
 }
