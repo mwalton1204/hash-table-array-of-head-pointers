@@ -26,7 +26,7 @@ int HashTable::getEntry(int) {
 }
 
 int HashTable::getCount() {
-    return 0;
+    return count;
 }
 
 void HashTable::displayTable() {}
