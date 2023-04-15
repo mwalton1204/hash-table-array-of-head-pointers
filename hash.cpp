@@ -39,8 +39,33 @@ bool HashTable::addEntry(int id, string* data) {
     return added;
 }
 
-bool HashTable::removeEntry(int) {
-    return true;
+bool HashTable::removeEntry(int id) {
+    bool removed = false;
+    int position = hash(id);
+
+    if(hashTable[position]) {
+        if(hashTable[position]->data.id == id) {
+            Node* tmpNode = hashTable[position];
+            hashTable[position] = tmpNode->next;
+            delete tmpNode;
+            count--;
+            removed = true;
+        } else {
+            Node *current = hashTable[position];
+            while(current->next && current->next->data.id != id) {
+                current = current->next;
+            }
+            if(current->next && current->next->data.id == id) {
+                Node* tmpNode = current->next;
+                current->next = tmpNode->next;
+                delete tmpNode;
+                count--;
+                removed = true;
+            }
+        }
+    }
+
+    return removed;
 }
 
 string HashTable::getEntry(int) {
